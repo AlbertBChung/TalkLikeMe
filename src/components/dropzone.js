@@ -1,5 +1,6 @@
 import React, {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
+import {getKeyWordsFromMessageHistory} from '../util/messageParser'
 
 function Dropzone() {
   const onDrop = useCallback((acceptedFiles) => {
@@ -11,7 +12,7 @@ function Dropzone() {
       reader.onload = () => {
       // Do whatever you want with the file contents
         const binaryStr = reader.result
-        console.log(binaryStr)
+        getKeyWordsFromMessageHistory(binaryStr)
       }
       reader.readAsText(file)
     })
