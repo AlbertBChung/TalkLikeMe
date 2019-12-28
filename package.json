@@ -10,6 +10,7 @@
     "react-dom": "^16.12.0",
     "react-dropzone": "^10.2.1",
     "react-scripts": "3.3.0",
+    "text-readablity": "^1.0.1",
     "wink-pos-tagger": "^2.2.2"
   },
   "scripts": {

@@ -3,13 +3,13 @@ var tagger = posTagger();
 
 //https://github.com/dwyl/english-words
 var wordslist = require('./words_dictionary.json');
+const rs = require('text-readablity')
 
 export const getKeyWordsFromMessageHistory = (msgContentStr) => {
   parseFBMessageHistory(msgContentStr);
 };
 
 var decodeUnicodes = (str) => {
-  console.log(str)
   let arr = str.split('');
   arr = arr.map(c => c.charCodeAt(0));
   return Buffer.from(arr).toString("utf8");
@@ -52,7 +52,7 @@ var tagWords = (lines) => {
           keyword = word.value;
         }
         if(category && wordslist[keyword]){
-          category[keyword] = true;
+          category[keyword] = rs.fleschReadingEase(keyword);
         }
       }
     })
